@@ -61,7 +61,7 @@ int find_process_by_name(const char *process_name)
 	while (get_next_process(&it, &proc) != -1)
 	{
 		//process found
-		if (strncmp(basename(proc.command), process_name, strlen(process_name))==0 && kill(pid,SIGCONT)==0) {if ((strncmp(basename(proc.command), process_name, strlen(process_name))==0 || strncmp(proc.command, process_name, strlen(process_name))==0)  && kill(pid,SIGCONT)==0) {
+		if ((strncmp(basename(proc.command), process_name, strlen(process_name))==0 || strncmp(proc.command, process_name, strlen(process_name))==0)  && kill(pid,SIGCONT)==0) {
 			//process is ok!
 			pid = proc.pid;
 			break;
